@@ -3,8 +3,8 @@ package br.com.nkiambi.agenda;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.ContextMenu;
@@ -34,6 +34,7 @@ public class ListaAlunos extends ActionBarActivity {
 		
 		ListView lista = (ListView)findViewById(R.id.lista);
 		registerForContextMenu(lista);
+		
 		
 		
 		// Clique para alteração
@@ -67,11 +68,34 @@ public class ListaAlunos extends ActionBarActivity {
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		MenuItem ligar = menu.add("Ligar");
-		
-		
+		ligar.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				 Intent irParaTelaDeDiscagem = new Intent(Intent.ACTION_CALL);
+				 Uri discarPara = Uri.parse("tel:" +aluno.getTelefone());
+				 irParaTelaDeDiscagem.setData(discarPara);
+				 startActivity(irParaTelaDeDiscagem);
+				return false;
+			}
+		});
 		
 		MenuItem enviarSms = menu.add("Enviar SMS");
 		
+		
+		
+		MenuItem site = menu.add("Navegar no Site");
+		site.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+			Intent irParaOSite =	new Intent(Intent.ACTION_VIEW);
+			Uri local = Uri.parse("https://" +aluno.getSite());
+			irParaOSite.setData(local);
+			startActivity(irParaOSite);
+				return false;
+			}
+		});
 		
 	    MenuItem deletar =	menu.add("Excluir");
 	    deletar.setOnMenuItemClickListener(new OnMenuItemClickListener() {
