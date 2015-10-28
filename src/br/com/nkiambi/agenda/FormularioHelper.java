@@ -21,6 +21,7 @@ public class FormularioHelper {
 		 editSite     =(EditText)formulario.findViewById(R.id.site);
 		 editEndereco =(EditText)formulario.findViewById(R.id.endereco);
 		 editTelefone =(EditText)formulario.findViewById(R.id.telefone);
+		 editTelefone.addTextChangedListener(Mask.insert("(##)####-####", editTelefone));
 		 ratingNota    =(RatingBar)formulario.findViewById(R.id.nota);
 		
 	}
