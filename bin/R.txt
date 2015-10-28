@@ -425,8 +425,11 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f02003b
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f02003c
 int drawable abc_textfield_search_material 0x7f02003d
 int drawable ic_launcher 0x7f02003e
-int drawable notification_template_icon_bg 0x7f020040
-int drawable novo 0x7f02003f
+int drawable map 0x7f02003f
+int drawable mapa 0x7f020040
+int drawable notification_template_icon_bg 0x7f020043
+int drawable novo 0x7f020041
+int drawable sincro 0x7f020042
 int id action0 0x7f090054
 int id action_bar 0x7f09003e
 int id action_bar_activity_content 0x7f090003
@@ -597,6 +600,7 @@ int string baixar_provas 0x7f0a0022
 int string endere_o_ 0x7f0a0017
 int string gravar 0x7f0a001b
 int string hello_world 0x7f0a0013
+int string mais 0x7f0a0023
 int string nome 0x7f0a0019
 int string nome_ 0x7f0a0015
 int string nota_ 0x7f0a001a

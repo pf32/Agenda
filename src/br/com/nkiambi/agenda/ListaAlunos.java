@@ -3,6 +3,7 @@ package br.com.nkiambi.agenda;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,11 +19,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 import br.com.nkiambi.agenda.DAO.AlunoDAO;
 import br.com.nkiambi.cadastro.modelo.Aluno;
 
-@SuppressWarnings("deprecation")
+
 @SuppressLint("NewApi")
 public class ListaAlunos extends ActionBarActivity {
 	private Aluno aluno;
@@ -35,12 +35,17 @@ public class ListaAlunos extends ActionBarActivity {
 		ListView lista = (ListView)findViewById(R.id.lista);
 		registerForContextMenu(lista);
 		
+		
+		// Clique para alteração
 		lista.setOnItemClickListener(new OnItemClickListener(){
 
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
-				Toast.makeText(ListaAlunos.this, "Clique na posicao"+ position,Toast.LENGTH_SHORT).show();
 			
+				Aluno alunoClicado = (Aluno) adapter.getItemAtPosition(position);
+				Intent irParaFormulario = new Intent(ListaAlunos.this, Formulario.class);
+				irParaFormulario.putExtra("alunoSelecionado", alunoClicado);
+				startActivity(irParaFormulario);
 			}
 		});
 		

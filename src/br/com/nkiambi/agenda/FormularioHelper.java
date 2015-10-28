@@ -38,4 +38,13 @@ public class FormularioHelper {
 		
 	}
 
+	public void colocaAlunoNoFormulario(Aluno alunoParaSerAlterado) {
+		
+		editNome.setText(alunoParaSerAlterado.getNome());
+		editSite.setText(alunoParaSerAlterado.getSite());
+		editEndereco.setText(alunoParaSerAlterado.getEndereco());
+		editTelefone.setText(alunoParaSerAlterado.getTelefone());
+		ratingNota.setRating((alunoParaSerAlterado.getNota().floatValue()));
+	}
+
 }

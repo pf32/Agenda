@@ -1,7 +1,9 @@
 package br.com.nkiambi.agenda;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,9 +21,18 @@ public class Formulario extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.formulario);
 		
-	   helper = new FormularioHelper(this);
+		
+		Intent intent =  getIntent();
+		final Aluno alunoParaSerAlterado = (Aluno)intent.getSerializableExtra("alunoSelecionado");
+		//Toast.makeText(this, "aluno:" + alunoParaSerAlterado, Toast.LENGTH_LONG).show();
+		
+	    helper = new FormularioHelper(this);
 	   
 	   Button botao = (Button) findViewById(R.id.gravar);
+	   if(alunoParaSerAlterado!=null){
+		   botao.setText("Alterar");
+		   helper.colocaAlunoNoFormulario(alunoParaSerAlterado);
+	   }
 	   
 	   botao.setOnClickListener(new OnClickListener() {
 		
@@ -29,7 +40,14 @@ public class Formulario extends ActionBarActivity {
 		public void onClick(View v) {
 			 Aluno aluno = helper.pegaAlunoDoFormulario();
 			 AlunoDAO dao = new AlunoDAO(Formulario.this);
-			   dao.salva(aluno);
+			 
+			 if(alunoParaSerAlterado == null){
+				 dao.salva(aluno);
+			 }else {
+				 aluno.setId(alunoParaSerAlterado.getId());
+				 dao.altera(aluno);
+			 }
+			   
 			   dao.close();
 			   finish();
 				
@@ -37,5 +55,9 @@ public class Formulario extends ActionBarActivity {
 	});
 	  
 	}
-
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+	
+	return super.onCreateOptionsMenu(menu);
+}
 }

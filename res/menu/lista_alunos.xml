@@ -6,20 +6,22 @@
     <item
         android:id="@+id/novo"
         android:icon="@drawable/novo"
-        android:showAsAction="ifRoom"
+        app:showAsAction="ifRoom"
         android:title="@string/novo"
      />
     
     
     <item
         android:id="@+id/mapa"
-         android:showAsAction="ifRoom"
+         android:icon="@drawable/map"
+        app:showAsAction="ifRoom"
         android:title="@string/_mapa"
       />
-    
+  
     <item
         android:id="@+id/sincronizar"
-         android:showAsAction="always"
+        android:icon="@drawable/sincro"
+        app:showAsAction="ifRoom"
         android:title="@string/sincronizar"
       />
     
@@ -36,11 +38,7 @@
         android:title="@string/prefer_ncias" 
         
         />
-        
-        
-        
-
-    
+   
    
     
 </menu>
