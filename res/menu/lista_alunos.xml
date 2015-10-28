@@ -1,0 +1,46 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.nkiambi.agenda.ListaAlunos" >
+
+    <item
+        android:id="@+id/novo"
+        android:icon="@drawable/novo"
+        android:showAsAction="ifRoom"
+        android:title="@string/novo"
+     />
+    
+    
+    <item
+        android:id="@+id/mapa"
+         android:showAsAction="ifRoom"
+        android:title="@string/_mapa"
+      />
+    
+    <item
+        android:id="@+id/sincronizar"
+         android:showAsAction="always"
+        android:title="@string/sincronizar"
+      />
+    
+    <item 
+        android:id="@+id/baixarProvas"
+        android:showAsAction="always"
+        android:title="@string/baixar_provas" 
+        
+        />
+    
+     <item 
+        android:id="@+id/preferencias"
+        android:showAsAction="always"
+        android:title="@string/prefer_ncias" 
+        
+        />
+        
+        
+        
+
+    
+   
+    
+</menu>
