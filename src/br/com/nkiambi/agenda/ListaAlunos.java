@@ -17,15 +17,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import br.com.nkiambi.agenda.DAO.AlunoDAO;
+import br.com.nkiambi.agenda.adapter.ListaAlunosAdapter;
 import br.com.nkiambi.cadastro.modelo.Aluno;
 
 
 @SuppressLint("NewApi")
 public class ListaAlunos extends ActionBarActivity {
 	private Aluno aluno;
+	private ListView lista;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -125,11 +126,15 @@ public class ListaAlunos extends ActionBarActivity {
 		List<Aluno> alunos = dao.getLista();
 		dao.close();
 		
-		int layout = android.R.layout.simple_list_item_1;
-		ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, layout, alunos);
+		int layout = R.layout.linha_listagem;
+				
+	//	ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, layout, alunos);
+		ListaAlunosAdapter adapter = new ListaAlunosAdapter(alunos, this);
 		
-		ListView lista = (ListView)findViewById(R.id.lista);
+		lista = (ListView)findViewById(R.id.lista);
 		lista.setAdapter(adapter);
+		
+		
 	}
 	
 	@Override

@@ -81,8 +81,7 @@ public class Formulario extends ActionBarActivity {
 			 }
 		}
 	});
-	   
-	   
+	      
 	   ImageView foto = helper.getFoto();
 	   foto.setOnClickListener(new OnClickListener() {
 		
