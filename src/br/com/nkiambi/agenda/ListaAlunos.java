@@ -5,6 +5,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
+import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.ContextMenu;
@@ -155,6 +156,15 @@ public class ListaAlunos extends ActionBarActivity {
 			startActivity(irParaFormulario);
 			break;
 
+		case R.id.sincronizar:
+
+			
+			break;
+		case R.id.baixarProvas:
+			
+			
+		case R.id.preferencias:
+			
 		default:
 			break;
 		}
